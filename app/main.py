@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import logging
 
 from app.api.v1.endpoints import ( websocket ,Account ,Booking ,film ,FilmSearch ,historyfilm ,MovieCommetntary ,
-                                  Schedule ,ShowTime  , ChairList, ChooseChair,payment  ,CommentFilm , historypayment )
+                                  Schedule ,ShowTime  , ChairList, ChooseChair,payment  ,CommentFilm , historypayment  , UpdateChair)
 
 
 
@@ -32,6 +32,7 @@ app.include_router(MovieCommetntary.router)
 app.include_router(payment.router)
 app.include_router(CommentFilm.router)
 app.include_router(historypayment.router)
+app.include_router(UpdateChair.router)
 
 
 
