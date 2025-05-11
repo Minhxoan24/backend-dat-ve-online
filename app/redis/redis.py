@@ -1,11 +1,9 @@
 import redis.asyncio as redis
 
 class RedisManager:
-    def __init__(self):
-        self.redis = redis.from_url(
-            "rediss://default:XNOrDwnmoV8ZwQ0zty9UINOn5cNGgNPx@redis-13952.c228.us-central1-1.gce.redns.redis-cloud.com:13952",
-            decode_responses=True
-        )
+    def __init__(self, redis_url="redis://default:XNOrDwnmoV8ZwQ0zty9UINOn5cNGgNPx@redis-13952.c228.us-central1-1.gce.redns.redis-cloud.com:13952"):
+        # Kết nối với Redis qua URL
+        self.redis = redis.from_url(redis_url, decode_responses=True)
 
     async def set_ghe_tam_thoi(self, suat_chieu_id, ghe_id, user_id, timeout=300):
         key = f"ghe:{ghe_id}:{suat_chieu_id}"
